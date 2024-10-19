@@ -9,7 +9,17 @@ export const programModeEnumMap = {
   PLANNED_SELF_DIRECTED: "plannedSelfDirected",
 } as const;
 
-export type IndividualProgram = unknown;
+//1 use union of key
+
+// export type IndividualProgram = typeof programModeEnumMap[
+//   | "ONE_ON_ONE"
+//   | "SELF_DIRECTED"
+//   | "PLANNED_ONE_ON_ONE"
+//   | "PLANNED_SELF_DIRECTED"
+// ];
+
+//2 use utility type and exclude keys that we dont want
+export type IndividualProgram = typeof programModeEnumMap[Exclude< keyof typeof programModeEnumMap, 'GROUP' | 'ANNOUNCEMENT' >]
 
 type tests = [
   Expect<

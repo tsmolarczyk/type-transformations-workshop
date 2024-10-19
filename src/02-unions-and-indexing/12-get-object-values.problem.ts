@@ -6,7 +6,9 @@ const frontendToBackendEnumMap = {
   sharedModule: "SHARED_MODULE",
 } as const;
 
-type BackendModuleEnum = unknown;
+
+// need to get type of const, then in index annotation use keyof and then use that type
+type BackendModuleEnum = typeof frontendToBackendEnumMap[keyof typeof frontendToBackendEnumMap];
 
 type tests = [
   Expect<

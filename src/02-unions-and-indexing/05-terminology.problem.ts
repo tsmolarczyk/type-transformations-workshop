@@ -23,7 +23,7 @@ type A =
 //* One of the type declarations below is a discriminated union.
 type B = "a" | "b" | "c";
 
-//* One of the type declarations below is an enum.
+//  * One of the type declarations below is an enum.
 enum C {
   A = "a",
   B = "b",
